@@ -23,25 +23,23 @@ export default function CurrencyConverter() {
       setCurrencySymbols(Object.keys(data.symbols));
     };
     getSymbols();
-
-    const convertCurrency = async (to, from, amount) => {
-      let myHeaders = new Headers();
-      myHeaders.append("apikey", "dznzx2HwMzCohBpZq2JXpPyldLRWUT5L");
-      const requestOptions = {
-        method: "GET",
-        redirect: "follow",
-        headers: myHeaders
-      };
-      const response = await fetch(
-        `https://api.apilayer.com/exchangerates_data/convert?to=${to}&from=${from}&amount=${amount}`,
-        requestOptions
-      );
-      const data = await response.json();
-      console.log(data);
-    };
-
-    convertCurrency("USD", "INR", "80");
   }, []);
+
+  const convertCurrency = async (to, from, amount) => {
+    let myHeaders = new Headers();
+    myHeaders.append("apikey", "dznzx2HwMzCohBpZq2JXpPyldLRWUT5L");
+    const requestOptions = {
+      method: "GET",
+      redirect: "follow",
+      headers: myHeaders
+    };
+    const response = await fetch(
+      `https://api.apilayer.com/exchangerates_data/convert?to=${to}&from=${from}&amount=${amount}`,
+      requestOptions
+    );
+    const data = await response.json();
+    console.log(data);
+  };
 
   const handleSelectorOne = (e) => {
     setSelectorOne(e.target.value);
