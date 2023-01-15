@@ -13,3 +13,12 @@ button {
 .center {
   text-align: center;
 }
+select {
+  padding: 5px;
+  margin: 5px;
+}
+
+input {
+  padding: 5px;
+  margin: 5px;
+}
