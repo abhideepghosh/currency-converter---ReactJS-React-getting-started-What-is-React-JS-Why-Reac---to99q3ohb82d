@@ -4,6 +4,9 @@ export default function CurrencyConverter() {
   const [currencySymbols, setCurrencySymbols] = useState([]);
   const [selectorOne, setSelectorOne] = useState("USD");
   const [selectorTwo, setSelectorTwo] = useState("INR");
+  const [currencyFrom, setCurrencyFrom] = useState("");
+  const [currencyTo, setCurrencyTo] = useState("");
+
   useEffect(() => {
     const getSymbols = async () => {
       // Define Headers
@@ -41,11 +44,19 @@ export default function CurrencyConverter() {
     console.log(data);
   };
 
+  /* ------------Inputs------------ */
   const handleSelectorOne = (e) => {
     setSelectorOne(e.target.value);
   };
   const handleSelectorTwo = (e) => {
     setSelectorTwo(e.target.value);
+  };
+  const handleFrom = (e) => {
+    setCurrencyFrom(e.target.value);
+  };
+
+  const handleTo = (e) => {
+    setCurrencyTo(e.target.value);
   };
 
   return (
@@ -62,7 +73,13 @@ export default function CurrencyConverter() {
         {/* <option value="volvo">Volvo</option> */}
       </select>
 
-      <input type="text" id="currencyOne" className="currency1" />
+      <input
+        type="text"
+        id="currencyOne"
+        value={currencyFrom}
+        onChange={handleFrom}
+        className="currency1"
+      />
       <br />
       <select value={selectorTwo} onChange={handleSelectorTwo}>
         {currencySymbols.map((element, i) => {
@@ -74,7 +91,17 @@ export default function CurrencyConverter() {
         })}
         {/* <option value="volvo">Volvo</option> */}
       </select>
-      <input type="text" id="currencyTwo" className="currency2" />
+      <input
+        type="text"
+        id="currencyTwo"
+        value={currencyTo}
+        onChange={handleTo}
+        className="currency2"
+      />
     </div>
   );
 }
+
+//khuda jaane...
+// piya ore piya (atif aslam)
+// all songs of kk
